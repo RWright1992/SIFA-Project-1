@@ -13,6 +13,7 @@ For our task we were set with the objective: ‘To create a CRUD application wit
 ### Additional Requirements
 
 * Kanban board
+
 * Relational database that needs to have at least 2 tables in it.
 * Clear Documentation from a design phase describing the architecture and Risk Assessment.
 * A functional CRUD application created in Python, following best practices and design principles
