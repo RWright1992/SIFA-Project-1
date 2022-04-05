@@ -7,7 +7,7 @@ EnvironmentFile=/opt/flask-app/flask.env
 ExecStart=/bin/sh \
     -c 'cd /opt/flask-app/setlist-app &&\
     python3 -m venv venv &&\
-    source venv/bin/activate &&\
+    . ./venv/bin/activate &&\
     pip3 install - requirements.txt &&\
     python3 create.py &&\
     python3 app.py'
