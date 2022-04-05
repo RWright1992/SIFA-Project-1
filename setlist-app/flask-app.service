@@ -8,7 +8,7 @@ ExecStart=/bin/sh \
     -c 'cd /opt/flask-app/setlist-app &&\
     python3 -m venv venv &&\
     . ./venv/bin/activate &&\
-    pip3 install - requirements.txt &&\
+    pip3 install -r requirements.txt &&\
     python3 create.py &&\
     python3 app.py'
 [Install]
