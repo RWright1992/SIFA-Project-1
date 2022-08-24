@@ -1,8 +1,8 @@
 version: '3.8'
 services:
   SFIA1:
-    image: rwright1992/sfia1:latest
     build: ./
+    image: rwright1992/sfia1:latest
     ports:
     - target: 5000
       published: 5000
