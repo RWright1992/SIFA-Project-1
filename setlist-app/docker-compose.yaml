@@ -7,3 +7,6 @@ services:
     - target: 5000
       published: 5000
       protocol: tcp
+      enviornment:
+        DATABASE_URI: ${DBURI}
+        MY_SECRET_KEY: ${MYSECRETKEY}

@@ -4,8 +4,6 @@ COPY . .
 
 RUN pip3 install -r requirements.txt
 
-ENV DATABASE_URI=sqlite:///data.db MY_SECRET_KEY=shhhhhhh
-
 RUN ["python3", "create.py"]
 
 ENTRYPOINT ["python3", "app.py"]
