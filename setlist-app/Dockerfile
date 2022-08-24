@@ -4,6 +4,6 @@ COPY . .
 
 RUN pip3 install -r requirements.txt
 
-RUN ["python3", "create.py"]
+RUN python3 create.py
 
 ENTRYPOINT ["python3", "app.py"]
