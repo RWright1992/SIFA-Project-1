@@ -20,7 +20,7 @@ pipeline {
         }
          stage('Deploy App'){
             steps {
-                withCredentials([string(credentialsId: 'DBURI', variable: 'DATABASE_URI'), string(credentialsId: 'TESTSECRETKEY', variable: 'MY_SECRET_KEY')]) {
+                withEnv(['DATABASE_URI=sqlite:///data.db', 'MY_SECRET_KEY=shhhhh']) {
     sh 'cd setlist-app && docker-compose up -d'
 }
             }
