@@ -4,18 +4,23 @@ pipeline {
         stage('Test App'){
             steps {
               withCredentials([string(credentialsId: 'DBURI', variable: 'DATABASE_URI'), string(credentialsId: 'TESTDBURI', variable: 'TEST_DB_URI'), string(credentialsId: 'TESTSECRETKEY', variable: 'TEST_SECRET_KEY'), string(credentialsId: 'TESTSECRETKEY', variable: 'MY_SECRET_KEY')]) {
-    sh 'cd setlist-app && python3 -m venv venv && ls && . ./venv/bin/activate && pip3 install -r requirements.txt && python3 -m pytest'
+    sh 'cd setlist-app && python3 -m venv venv && . ./venv/bin/activate && pip3 install -r requirements.txt && python3 -m pytest'
 }   
             }
         }
-        stage('Placeholder'){
+        stage('Build Images'){
             steps {
-                sh 'ls'
+                sh 'cd setlist-app && docker-compose build'
             }
         }
-        stage('Placeholder1'){
+        stage('Push Images'){
             steps {
-                sh 'ls'
+                sh 'cd setlist-app && docker-compose push'
+            }
+        }
+         stage('Deploy App'){
+            steps {
+                sh 'cd setlist-app && docker-compose up -d'
             }
         }
     }
