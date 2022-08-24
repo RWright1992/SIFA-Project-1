@@ -3,7 +3,9 @@ pipeline {
     stages{
         stage('Test App'){
             steps {
-               sh 'cd setlist-app && python3 -m venv venv && ls && . ./venv/bin/activate && pip3 install -r requirements.txt && python3 -m pytest' 
+              withCredentials([string(credentialsId: 'DBURI', variable: 'DATABASE_URI'), string(credentialsId: 'TESTDBURI', variable: 'TEST_DB_URI'), string(credentialsId: 'TESTSECRETKEY', variable: 'TEST_SECRET_KEY'), string(credentialsId: 'TESTSECRETKEY', variable: 'MY_SECRET_KEY')]) {
+    sh 'cd setlist-app && python3 -m venv venv && ls && . ./venv/bin/activate && pip3 install -r requirements.txt && python3 -m pytest'
+}   
             }
         }
         stage('Placeholder'){
