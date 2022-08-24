@@ -3,7 +3,7 @@ pipeline {
     stages{
         stage('Test App'){
             steps {
-               sh 'cd setlist-app && python3 -m venv venv && ls && source venv/bin/activate && pip3 install -r requirements.txt && python3 -m pytest --cov-report term-missing --cov=application tests/' 
+               sh 'cd setlist-app && python3 -m venv venv && ls && . ./venv/bin/activate && pip3 install -r requirements.txt && python3 -m pytest --cov-report term-missing --cov=application tests/' 
             }
         }
         stage('Placeholder'){
