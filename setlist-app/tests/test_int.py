@@ -65,22 +65,6 @@ class TestHomeButton(TestBase):
 		assert url_for('home') in self.driver.current_url
 
 
-class TestAddSongBankButton(TestBase):
-
-	def test_add_song_bank_button(self):
-#testing add song to songbank  button will bring user to add songbank page
-		self.driver.find_element_by_xpath('/html/body/a[2]').click()
-		time.sleep(1)
-		self.driver.find_element_by_xpath('//*[@id="song_name"]').send_keys(test_songb_song_name)
-		self.driver.find_element_by_xpath('//*[@id="song_album"]').send_keys(test_songb_song_album)
-		self.driver.find_element_by_xpath('//*[@id="song_artist"]').send_keys(test_songb_song_artist)
-		#not inclusing select as elemant will be pre populated with C
-		self.driver.find_element_by_xpath('//*[@id="song_key"]').send_keys('C')
-		self.driver.find_element_by_xpath('//*[@id="song_bpm"]').send_keys(test_songb_song_bpm)
-		self.driver.find_element_by_xpath('//*[@id="submit"]').click()
-		time.sleep(1)
-#asserting browser redirects to songbank page
-		assert url_for('songbank') in self.driver.current_url
 
 class TestSongBankButton(TestBase):
 
