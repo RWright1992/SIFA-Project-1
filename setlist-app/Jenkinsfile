@@ -11,7 +11,7 @@ pipeline {
                 sh 'ls'
             }
         }
-        stage('Placeholder'){
+        stage('Placeholder1'){
             steps {
                 sh 'ls'
             }
